@@ -1,0 +1,44 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="dark">
+    <ion-title color="danger">
+      NEWS
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="dark">
+  
+  <ion-grid fixed>
+    <ion-row>
+
+
+      <ion-col  
+            size="12" size-lg="3" size-md="4" size-sm="2" size-xs="12"
+            *ngFor=" let n of noticias; let i = index ">
+
+          
+
+          <ion-card color="dark">
+            <ion-card-header>
+              <ion-card-subtitle>
+                <span class="text-primary">{{ i + 1 }}.</span>
+                <span class="noticia-source-name">{{ n.source.name }}</span>
+              </ion-card-subtitle>
+              <!-- src -> va entre llaves pq proviene de una URL -->
+              <ion-img *ngIf="n.urlToImage"
+              [src]="n.urlToImage">
+              </ion-img>
+              <ion-card-title>{{ n.title }}</ion-card-title>
+              <ion-card-content>
+                <p>{{ n.description }}</p>
+              </ion-card-content>
+            </ion-card-header>
+          </ion-card>
+
+      </ion-col>
+
+
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>
